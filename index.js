@@ -30,6 +30,11 @@ const questions = [{
     name: `license`,
     choices: [`None`,`MIT`, `Apache`, `Boost`, `GNU-GPLv3`],
 },{
+    type: `list`,
+    message: `Badge Color: `,
+    name: `color`,
+    choices: [`brightgreen`, `green`, `yellowgreen`, `yellow`,`orange`,`red`,`blue`,`lightgrey`,`blueviolet`],
+},{
     type:`input`,
     message: `Choose your filename: `,
     name: `filename`
@@ -40,9 +45,6 @@ function writeToFile() {
     inquirer
     .prompt(questions)
     .then(function(data) {
-        console.log(data);
-        console.log(data.license);
-
         let genData = generateMarkdown(data);
 
         fs.writeFile(`${data.filename}.md`, genData, function(error) {
