@@ -1,59 +1,58 @@
 // TODO: Include packages needed for this application
 const inquirer = require(`inquirer`);
 const fs = require(`fs`);
-const gen = require(`./utils/generateMarkdown.js`);
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
 const questions = [{
-    // TYPE:
-    // type: input, number, confirm, list, rawlist, expand, checkbox, password, editor
-
-    // CHOICES
     type: `input`,
     message: `Project title: `,
-    name: `project`,
+    name: `title`,
 },{
     type: `input`,
     message: `Enter a description: `,
     name: `description`,
-},
-{
+},{
     type: `input`,
     message: `Installation instructions: `,
     name: `installation`,
-},
-{
-    type: `list`,
+},{
+    type: `input`,
     message: `Usage: `,
     name: `usage`,
-},
-{
-    type: `choice`,
+},{
+    type: `input`,
+    message: `Contribution Guidelines: `,
+    name: `contribution`,
+},{
+    type: `checkbox`,
     message: `Choose your license(Optional): `,
-    choices: [`None`,`MIT`, `Apache`, `Boost`, `CC0`],
-},
-];
-
-
-// [
-//     `Project Title`,
-//     `Description`,
-//     `Installation instructions`,
-//     `Usage Information`,
-//     `Contribution guidelines`,
-//     `test instructions`
-// ];
+    name: `license`,
+    choices: [`None`,`MIT`, `Apache`, `Boost`, `GNU-GPLv3`],
+},{
+    type:`input`,
+    message: `Choose your filename: `,
+    name: `filename`
+}];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(`${fileName}.md`, data, function(error) {
-        error ? `Error, something went wrong` : `Success`;
-    });
+function writeToFile() {
+    inquirer
+    .prompt(questions)
+    .then(function(data) {
+        let genData = generateMarkdown(data);
+
+
+
+        fs.writeFile(`${data.filename}.md`, genData, function(error) {
+            error ? `Error, something went wrong` : `Success`;
+        });
+    })
 }
 
 // TODO: Create a function to initialize app
 function init() {
-    writeToFile(x, y);
+    writeToFile();
 }
 
 // Function call to initialize app
