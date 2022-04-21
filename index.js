@@ -25,7 +25,7 @@ const questions = [{
     message: `Contribution Guidelines: `,
     name: `contribution`,
 },{
-    type: `checkbox`,
+    type: `list`,
     message: `Choose your license(Optional): `,
     name: `license`,
     choices: [`None`,`MIT`, `Apache`, `Boost`, `GNU-GPLv3`],
@@ -40,9 +40,10 @@ function writeToFile() {
     inquirer
     .prompt(questions)
     .then(function(data) {
+        console.log(data);
+        console.log(data.license);
+
         let genData = generateMarkdown(data);
-
-
 
         fs.writeFile(`${data.filename}.md`, genData, function(error) {
             error ? `Error, something went wrong` : `Success`;

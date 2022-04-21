@@ -3,19 +3,23 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-    if (license === `None`) {
-        switch(license){
-            case("none"):
-            return;
-            case("MIT"):
-            return "MIT";
-            case("Apache"):
-            return "Apache_2.0";
-            case("GNU-GPLv3"):
-            return "GPLv3";
-        }    
+    var badge;
+        
+    switch(license) {
+        case("MIT"): 
+            badge = "MIT";
+            break;
+        case("Apache"):
+            badge = "Apache_2.0";
+            break;
+        case("GNU-GPLv3"):
+            badge = "GPLv3";
+            break;
     }
-    return ``;
+    
+    return renderLicenseLink(badge) + renderLicenseSection(badge)
+
+
     // const licenses = {
     //     none: "No license",
     //     apache: `[![License: Apache](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`,
@@ -36,7 +40,7 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-    return `[(https://img.shields.io/badge/License-${license}.svg)]`;
+    return `[![License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)]`;
 }
 
 // TODO: Create a function that returns the license section of README
@@ -47,14 +51,19 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-        const markdown = 
-    `## License: ${renderLicenseBadge(data.license.toLowerCase())};
-## Title: ${data.title}
-## Description: ${data.description}
-## Installation: ${data.installation}
-## Usage: ${data.contribution}`
+    const markdown = 
+`## ${data.title} ${renderLicenseBadge(data.license)}
 
-return markdown;
+## Description
+${data.description}
+
+## Installation
+${data.installation}
+
+## Usage
+${data.contribution}`
+
+    return markdown;
 }
 
 module.exports = generateMarkdown;
