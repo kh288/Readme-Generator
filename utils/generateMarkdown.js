@@ -4,6 +4,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license, color) {
     var badge;
+    var color;
     switch(license) {
         case("MIT"): 
             badge = "MIT";
@@ -17,8 +18,9 @@ function renderLicenseBadge(license, color) {
         case("GNU-GPLv3"):
             badge = "GPLv3";
             break;
+        default:
+            return ``;
     }
-    
     return renderLicenseLink(badge, color) + renderLicenseSection(badge);
 }
 
@@ -42,11 +44,25 @@ function generateMarkdown(data) {
 ## Description
 ${data.description}
 
+## Table of Contents
+* [Description](#Description)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Tests](#Tests)
+* [Questions](#Questions)
+
 ## Installation
 ${data.installation}
 
 ## Contribution
-${data.contribution}`
+${data.contribution}
+
+## Tests
+${data.tests}
+
+## Questions
+For questions, reach me at my github: https://github.com/${data.username}
+or by email: ${data.email}`
 
     return markdown;
 }

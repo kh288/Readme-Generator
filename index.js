@@ -25,6 +25,18 @@ const questions = [{
     message: `Contribution Guidelines: `,
     name: `contribution`,
 },{
+    type: `input`,
+    message: `Tests: `,
+    name: `tests`,
+},{
+    type: `input`,
+    message: `Github username: `,
+    name: `username`,
+},{
+    type: `input`,
+    message: `Enter your email: `,
+    name: `email`,
+},{
     type: `list`,
     message: `Choose your license(Optional): `,
     name: `license`,
