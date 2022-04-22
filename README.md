@@ -1,4 +1,4 @@
-## Readme Generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Readme Generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 This is designed to generate README using markdown as the output. It can be used to have nice clean looking READMEs without too much effort. It's easy to use, just simply fill out the questions!
