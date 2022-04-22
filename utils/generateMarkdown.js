@@ -74,6 +74,9 @@ ${data.description}
 ## Installation
 ${data.installation}
 
+## Usage
+${data.usage}
+
 ## Contribution
 ${data.contribution}
 
