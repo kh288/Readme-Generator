@@ -2,26 +2,46 @@
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license, color) {
+function renderLicenseBadge(license) {
     var badge;
-    var color;
+    let color;
+    // choices: [`brightgreen`, `green`, `yellowgreen`, `yellow`,`orange`,`red`,`blue`,`lightgrey`,`blueviolet`],
     switch(license) {
-        case("MIT"): 
-            badge = "MIT";
+        case(`MIT`): 
+            badge = `MIT`;
+            link = `MIT`;
+            color = `yellow`;
             break;
-        case("Apache"):
-            badge = "Apache-2.0";
+        case(`Apache`):
+            badge = `Apache_2.0`;
+            link = `Apache-2.0`;
+            color = `yellowgreen`;
             break;
-        case("Boost"):
-            badge = "Boost-1.0";
+        case(`Boost 1.0`):
+            badge = `Boost_1.0`;
+            link = `BSL-1.0`;
+            color = `lightblue`;
             break;
-        case("GNU-GPLv3"):
-            badge = "GPLv3";
+        case(`GPL v3`):
+            badge = `GPLv3`;
+            link = `GPL-3.0`
+            color = `blue`;
+            break;
+        case(`BSD 3`):
+            badge = `BSD_3`;
+            link = `BSD-3-Clause`
+            color = `orange`;
+            break;
+        case(`Mozilla 2.0`):
+            badge = `MPL_2.0`;
+            link = `MPL-2.0`
+            color = `brightgreen`;
             break;
         default:
+            // Should only get here if no license was selected
             return ``;
     }
-    return renderLicenseLink(badge, color) + renderLicenseSection(badge);
+    return renderLicenseLink(badge, color) + renderLicenseSection(link);
 }
 
 // TODO: Create a function that returns the license link

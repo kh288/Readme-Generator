@@ -40,12 +40,7 @@ const questions = [{
     type: `list`,
     message: `Choose your license(Optional): `,
     name: `license`,
-    choices: [`None`,`MIT`, `Apache`, `Boost`, `GNU-GPLv3`],
-},{
-    type: `list`,
-    message: `Badge Color: `,
-    name: `color`,
-    choices: [`brightgreen`, `green`, `yellowgreen`, `yellow`,`orange`,`red`,`blue`,`lightgrey`,`blueviolet`],
+    choices: [`None`,`MIT`, `Apache `, `Boost 1.0`, `GPL v3`, `BSD 3`,`Mozilla 2.0`],
 },{
     type:`input`,
     message: `Choose your filename: `,
